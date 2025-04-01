@@ -1,4 +1,6 @@
 {
+    "python.defaultInterpreterPath": "/opt/homebrew/anaconda3/envs/DL-torch/bin/python",
+    "python.venvPath": "/opt/homebrew/anaconda3/envs",
     "[python]": {
         "editor.tabSize": 4
     },
