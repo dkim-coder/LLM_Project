@@ -17,7 +17,7 @@ y_train = torch.from_numpy(y_numpy)
 # Define a simple linear regression model
 class LinearRegressionModel(nn.Module):
     def __init__(self):     # 생성자
-        super(LinearRegressionModel, self).__init__()   # 부모 클래스의 생성자 호출
+        super().__init__()   # 부모 클래스의 생성자 호출
         self.linear = nn.Linear(1, 1)  # 1 input feature, 1 output feature -> 1개의 입력에 대해 1개의 출력을 가진다는 의미
 
     def forward(self, x):
@@ -26,13 +26,13 @@ class LinearRegressionModel(nn.Module):
 # Initialize the model, define the loss function and the optimizer
 model = LinearRegressionModel()
 criterion = nn.MSELoss()  # Mean Squared Error Loss -> 손실 함수 정의
-optimizer = torch.optim.SGD(model.parameters(), lr=0.1)  # Stochastic Gradient Descent
+optimizer = torch.optim.SGD(model.parameters(), lr=0.1)  # Stochastic Gradient Descent, 모델 파라미터, 학습률 0.1
 
 # Training loop
 num_epochs = 1000
 for epoch in range(num_epochs):
     # Forward pass
-    outputs = model(x_train)    # 모델에 x_train을 넣어 예측값을 구하는 부분
+    outputs = model(x_train)    # 모델에 x_train을 넣어 예측값을 구하는 부분 -> forward() 메서드 호출
     loss = criterion(outputs, y_train)  # 손실 계산
 
     # Backward pass and optimization
